@@ -5,7 +5,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('activities', {
+  sequelize.define('Activity', {
     name:{
         type: DataTypes.STRING,
         allownull:false
