@@ -35,7 +35,8 @@ conn.sync({ force: true }).then(async () => {
             capital: el.capital,
             subregion : el.subregion,
             area : el.area,
-            population: el.population
+            population: el.population,
+            region: el.region
         }
       })
       await Country.bulkCreate(apiInfo)

@@ -10,54 +10,19 @@ const {
     countries_activities
 } = require('../db.js');
 
-const {Op} = require('sequelize');
+const {Op, or} = require('sequelize');
 
 
 const router = Router();
-/// Funcion para traer la data de la api a la base de datos
-
-// const loadData = async() =>{
-//     try {                               
-//     const arrdata = await axios.get('https://restcountries.eu/rest/v2/all')
-//     const apiInfo = await arrdata.data.map(el =>{
-//         return{
-//             id: el.alpha3Code,
-//             name : el.name,
-//             flag : el.flag,
-//             capital: el.capital,
-//             subregion : el.subregion,
-//             area : el.area,
-//             population: el.population
-//         }
-//     })
-//   ///  console.log("Api info", apiInfo)
-//     return apiInfo
-//     } catch (error) {
-//         console.log(error)
-//     }
-// } 
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get('/countries', async function (req,res) {
 ///
-let name = req.query.name
+let {name,filterby, orderby} = req.query
+
 ///
-// const allCountries = await loadData()
-
-// // try {
-// //     //traigo los datos de mi bd 
-// //     const countAll = await Country.findAndCountAll()
-// //     console.log('esto es el lenght de todos los countries', countAll.count)
-// //     if(countAll.count < 1){ 
-// //         console.log('entre al if')
-// //         await Country.bulkCreate(allCountries)
-// //     }
-// // } catch (error) {
-// //     console.log(error)
-// }
-
 /// si hay name
 if(name){
     try {
@@ -80,10 +45,34 @@ if(name){
     }
 }
 /// si no hay name muestro en pantalla
+else if(filterby&&orderby){
+  try {
+      if(orderby){
+      const CountryPupulationOrderyByASC=  await Country.findAll({
+          order:[[req.query.filterby, req.query.orderby]],
+          include:{
+            model: Activity
+          }
+      })
+      res.json(CountryPupulationOrderyByASC)
+    }
+  }  
+    catch (error) {
+        console.log(error)
+  } 
+}
 else{
     try {
-        const countrys = await Country.findAll()
-
+   //     let orderby = req.query.orderby
+    //console.log(orderby)
+        const countrys = await Country.findAll({ 
+            // limit:9,
+            // offset : req.query.page,
+            order:[['name']], //asc /desc
+            include:{
+               model: Activity
+            }
+        })
         res.json(countrys)
     } catch (error) {
         console.log(error)
@@ -104,7 +93,7 @@ router.get('/countries/:id', async function(req,res){
             where:{
                 id: id
             },
-            incluide:{
+            include:{
                 model: Activity,
             }
         })
@@ -121,12 +110,12 @@ router.get('/countries/:id', async function(req,res){
 })
 //setACountry
 router.post('/activity', async function(req,res){
-    const {name,dificulty,duration,season,countryid} = req.body
+    const {name,difficulty,duration,season,countryid} = req.body
     try {
-        if(name && dificulty && duration && season){
+        if(name && difficulty && duration && season){
            let activityCreated = await Activity.create({
                     name,
-                     dificulty ,
+                     difficulty ,
                      duration ,
                      season,
               })
@@ -137,7 +126,7 @@ router.post('/activity', async function(req,res){
                     }
                 })
                 await activityCreated.addCountries(country)
-                res.send('actividad creada')
+                res.send('Actividad creada')
             } catch (error) {
                 console.log(error)
             }

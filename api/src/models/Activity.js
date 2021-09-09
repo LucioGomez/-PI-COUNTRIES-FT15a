@@ -5,12 +5,13 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('Activity', {
+  sequelize.define('activity', {
     name:{
         type: DataTypes.STRING,
-        allownull:false
+        allownull:false,
+        unique: true
     },
-    dificulty:{
+    difficulty:{
         type: DataTypes.INTEGER
     },
     duration:{
