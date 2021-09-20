@@ -11,8 +11,10 @@ export default function Paginado({countriesPerPage,allCountries,paginado}){
          <nav>
              <ul className="pagination">
                  {
-                     pageNumbers && pageNumbers.map(n =>(
-                          <button onClick={()=>paginado(n)}> {n} </button> 
+                     
+                     pageNumbers.length === 1 ? null
+                     :  pageNumbers.map(n =>(
+                          <button className='button'onClick={()=>paginado(n)}> {n} </button> 
                     
                      ))
                  }

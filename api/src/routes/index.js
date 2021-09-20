@@ -33,7 +33,7 @@ if(name){
                 }
             }
         })
-       console.log('esto es CountryName lenght', CountryName.length)
+     //  console.log('esto es CountryName lenght', CountryName.length)
         if(!CountryName.length){
             return res.status(404).json('No existe pais con ese nombre')
         }
@@ -45,22 +45,6 @@ if(name){
     }
 }
 /// si no hay name muestro en pantalla
-else if(filterby&&orderby){
-  try {
-      if(orderby){
-      const CountryPupulationOrderyByASC=  await Country.findAll({
-          order:[[req.query.filterby, req.query.orderby]],
-          include:{
-            model: Activity
-          }
-      })
-      res.json(CountryPupulationOrderyByASC)
-    }
-  }  
-    catch (error) {
-        console.log(error)
-  } 
-}
 else{
     try {
    //     let orderby = req.query.orderby

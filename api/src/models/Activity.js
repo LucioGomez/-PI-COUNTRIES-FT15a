@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER
     },
     duration:{
-        type: DataTypes.INTEGER
+        type: DataTypes.BIGINT
     },
     season: {
         type: DataTypes.STRING

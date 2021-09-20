@@ -1,0 +1,18 @@
+.divCard{
+    background-color: rgb(0, 0, 0);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 15px rgba(207, 199, 199, 0.336);
+}
+.titulos{
+    border-left: 6px solid rgb(0, 140, 255);
+    background-color: rgb(99, 168, 177);
+}
+
+.elementos{
+    padding: 5px;
+    display: flex;
+    margin: 5px;
+    align-items: center;
+} 

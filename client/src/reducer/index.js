@@ -1,6 +1,7 @@
 const initialState ={
     countries: [],
-    allCountries: []
+    allCountries: [],
+    detail:[],
 }
 
 function rootReducer (state=initialState,action){
@@ -11,6 +12,11 @@ function rootReducer (state=initialState,action){
                 countries: action.payload,
                 allCountries: action.payload
             }
+        case 'GET_BY_NAME':
+                return{
+                ...state,
+                countries: action.payload
+            }
         case 'FILTER_BY_REGION':
             const allcountries = state.allCountries
             const filteredCountries= action.payload ==='All' ? allcountries : allcountries.filter(el => el.region === action.payload)
@@ -18,33 +24,69 @@ function rootReducer (state=initialState,action){
                 ...state,
                 countries: filteredCountries
             }
-        // case 'FILTER_BY_ACTIVITY':
-        //     const allcountries = state.allCountries
-        //     const filteredbyActivity = action.payload
-        // return{
-        //     ...state,
-        //     countries:
-        // }
-        case 'FILTER_BY_POPULATION_ASC':
-           return {
+        case 'POST_ACTITY':
+            return{
                 ...state,
-                countries: action.payload
             }
-        case 'FILTER_BY_POPULATION_DESC':
-                return {
-                     ...state,
-                     countries: action.payload
-                 };
-        
-        case 'FILTER_BY_NAME_AZ':
+         case 'FILTER_BY_ACTIVITY':
+             const allcountries2 = state.allCountries
+             const filteredbyActivity = allcountries2.filter(el=> el.activities.length>0)
+         return{
+             ...state,
+             countries: filteredbyActivity
+         }
+       case 'FILTER_BY_NAME':
+            let orderByname = action.payload === 'ASC'?
+            state.countries.sort(function(a,b){
+                if(a.name > b.name){
+                    return 1;
+                }
+                if(a.name < b.name){
+                    return -1;
+                }
+                return 0;
+            }):
+            state.countries.sort(function(a,b){
+                if(a.name > b.name){
+                    return -1;
+                }
+                if(a.name < b.name){
+                    return 1;
+                }
+                return 0;
+            })
         return {
             ...state,
-            countries: action.payload
+            countries: orderByname
         }
-        case 'FILTER_BY_NAME_ZA':
-            return {
+        case 'FILTER_BY_POPULATION':
+        let orderByPopulation = action.payload === 'ASC'?
+        state.countries.sort(function(a,b){
+            if(a.population > b.population){
+                return 1;
+            }
+            if(a.population < b.population){
+                return -1;
+            }
+            return 0;
+        }):
+        state.countries.sort(function(a,b){
+            if(a.population > b.population){
+                return -1;
+            }
+            if(a.population < b.population){
+                return 1;
+            }
+            return 0;
+        })
+        return {
+            ...state,
+            countries :  orderByPopulation
+        }
+        case "GET_DETAILS" :
+            return{
                 ...state,
-                countries: action.payload
+                detail: action.payload
             }
         default:
             return state;

@@ -5,9 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #cccccc;
+  background-image: url("https://p.kindpng.com/picc/s/247-2475996_transparent-world-map-png-transparent-background-countries-that.png");
+  background-color: #cccccc;
+  background-attachment: fixed;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

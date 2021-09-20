@@ -1,0 +1,15 @@
+.titulos{
+    background-color: rgba(180, 238, 133, 0.322);
+}
+
+.buttonLanding{
+    background-color: #686868; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+      
+}

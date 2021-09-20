@@ -9,6 +9,31 @@ export function getCountries(){
         })
     }
 }   
+export function getByName(name){
+    return async function (dispatch){
+      try{
+        var json = await axios.get('http://localhost:3001/countries?name=' + name)
+        return dispatch({
+            type: 'GET_BY_NAME',
+            payload: json.data
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+    }
+}   
+
+export function postActivity(payload){
+ return async function(dispatch){   
+    const json = await axios.post("http://localhost:3001/activity", payload)
+    console.log('response', json)
+    return dispatch({
+        type: 'POST_ACTITY',
+        payload : json
+    })
+}}
+
 
 export function filteredByRegion(payload){
    console.log(payload)
@@ -25,41 +50,43 @@ export function filteredByActivity(payload){
     }
 }
 
-export function filterPopulationASC(){
-    return async function(dispatch){
-        const json = await axios.get('http://localhost:3001/countries?filterby=population&orderby=ASC')
-        return dispatch({
-            type: 'FILTER_BY_POPULATION_ASC',
-            payload : json.data
-        })
-    }
+export function filterByPopulation(payload){
+
+        return {
+            type: 'FILTER_BY_POPULATION',
+            payload
+        }
+    
 }
-export function filterPopulationDESC(){
+
+
+export function filterName(payload){
+      return{
+            type: 'FILTER_BY_NAME',
+            payload 
+    
+        }   
+}
+
+
+export function getDetail(id){
     return async function(dispatch){
-        const json = await axios.get('http://localhost:3001/countries?filterby=population&orderby=DESC')
-        return dispatch({
-            type: 'FILTER_BY_POPULATION_DESC',
-            payload : json.data
-        })
+        try {
+            var json = await axios.get('http://localhost:3001/countries/'+id);
+            return dispatch({
+                type: 'GET_DETAILS',
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
-export function filterNameByAZ(){
-    return async function(dispatch){
-        const json = await axios.get('http://localhost:3001/countries?filterby=name&orderby=ASC')
-        return dispatch({
-            type: 'FILTER_BY_NAME_AZ',
-            payload : json.data
-        })
-    }
-}
-
-export function filterNameByZA(){
-    return async function(dispatch){
-        const json = await axios.get('http://localhost:3001/countries?filterby=name&orderby=DESC')
-        return dispatch({
-            type: 'FILTER_BY_NAME_ZA',
-            payload : json.data
-        })
-    }
+export function filterByActivity(payload){
+    return{
+          type: 'FILTER_BY_ACTIVITY',
+          payload 
+  
+      }   
 }
