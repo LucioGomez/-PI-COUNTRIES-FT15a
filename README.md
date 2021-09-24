@@ -59,3 +59,23 @@ La idea general es crear una aplicación en la cual se pueda ver información de
     <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/filtrados.gif'  width='800px' height='450'>
     </div>    
 </div>
+
+
+ 
+  <div>
+ 
+  <hr/>
+
+<h2> Me podes contactar en: </h2>
+
+<p>
+    <a href="https://www.linkedin.com/in/lucio-gomez/">
+      <h1>Linkedin</h1>
+    </a>
+    <a >
+       <h1>Mail: Luciotony25@gmail.com</h1>
+    </a>
+
+<p/>
+
+<hr/>
