@@ -25,37 +25,37 @@ La idea general es crear una aplicación en la cual se pueda ver información de
 <div> 
     <div>
     <h2>LANDING PAGE</h2>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/LandingPage.PNG'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/LandingPage.PNG'  width='530px' height='340'>
     </div>
     <div>
     <h2>HOME</h2>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/LandingPage.PNG'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/home.PNG'  width='530px' height='340'>
     </div>
     <div>
      <h2>PAGINADO</h2>
     </br>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/paginado.gif'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/paginado.gif'  width='530px' height='340'>
     </div>
     <div>
       <h2>FORMULARIO CONTROLADO</h2>
     </br>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/formularioControlado.gif'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/formularioControlado.gif'  width='530px' height='340'>
     </br>
-        <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/formulario2.gif'>
+        <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/formulario2.gif'  width='530px' height='340'>
     </div>
      <div>
        <h2>DETALLES</h2>
     </br>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/detail.PNG'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/detail.PNG'  width='530px' height='340'>
      </div>
      <div>
      <h2>Barra de busqueda</h2>
     </br>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/searchbar.gif'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/searchbar.gif'  width='530px' height='340'>
     </div>
          <div>
      <h2>FILTRADOS</h2>
     </br>
-    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/filtrados.gif'>
+    <img src='https://github.com/LucioGomez/LucioGomez/blob/main/assets/countries/filtrados.gif'  width='530px' height='340'>
     </div>    
 </div>
