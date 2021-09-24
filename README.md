@@ -21,6 +21,9 @@ La idea general es crear una aplicación en la cual se pueda ver información de
   - Buscar paises
   - Filtrarlos / Ordenarlos
   - Crear actividades turísticas
+<div>
+  <h1> :point_down: :point_down: VISION Y FUNCIONAMIENTO DEL PROYECTO:point_down: :point_down:  </h1>
+</div>
 
 <div> 
     <div>
